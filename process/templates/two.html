@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+</head>
+<body>
+
+
+
+<div align="center">
+<h1>PAGE 2</h1>
+    <h3>Score: {{Score_val}}</h3>
+
+    <table id="table_id"  style="width:400px">
+    <thead>
+        <tr>
+
+                        <th></th>
+                        <th>Key</th>
+                        <th>Frequency</th>
+
+        <tr>
+    </thead>
+    <tbody>
+       {% for data in whole_data %}
+
+                        <tr>
+                            <td>{{data.index}}</td>
+                            <td>{{data.key}}
+                          <a href="/drop/{{data.index}}">
+                            <img src="https://www.atabix.com/static/images/close-icon.svg" style="width:10px;height:10px"/> </a>
+                            </td>
+                            <td>{{data.fre}}</td>
+
+                        </tr>
+
+
+                    {% endfor %}
+
+    </tbody>
+</table>
+
+
+
+    <hr/>
+    <button onclick="location.href = '/';">New Scan</button> <button onclick="location.href ='/go-back/'">Go Back</button>
+    <br/>
+    <br/>
+
+</div>
+<script>
+    $(document).ready( function () {
+
+$('#table_id').dataTable( {
+    "iDisplayLength": 10
+});
+
+} );
+</script>
+</body>
+</html>
